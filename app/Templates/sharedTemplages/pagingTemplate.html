@@ -1,0 +1,35 @@
+<div class="clearfix"  style="padding:0 10px; margin-top:20px;">
+    <div class="pull-right" style="margin-left:5px; margin-top:3px;">
+        当前第<span ng-bind="pageModule.pageIndex"></span>页，共<span ng-bind=pageModule.TotalCount></span>条记录
+    </div>
+    <div class="lgPageListBox pull-left">
+        <select ng-change="pageModule.lgPageSelectChange()" ng-options="a for a  in pageModule.arrPageSize" ng-model="pageModule.pageSize" size="1" name="sample-table-2_length" style="width:45px; display:inline-block;margin:0px;"></select>
+        <nav>
+            <ul class="pageList" style="display:inline-block;">
+                <li class='{{1>=pageModule.pageIndex?"disabled":""}} first' ng-click="pageModule.chanePageIndex(1)">
+                    <a class="glyphicon glyphicon-step-backward" href="javascript:;"></a>
+                </li>
+                <li class='{{1>=pageModule.pageIndex?"disabled":""}} prev' ng-click="pageModule.chanePageIndex(pageModule.pageIndex-1)">
+                    <a class="glyphicon glyphicon-triangle-left" href="javascript:;"></a>
+                </li>
+                <li>
+                    &nbsp;&nbsp;<span>第&nbsp;</span><input type="text" value="" class="form-control input-sm text-center" style="width:30px;height:19px;border-radius:0; display:inline-block; margin: 0;padding: 0;" ng-model="pageModule.pageSet" ng-keyup="pageModule.pageModuleChage()" /><span>&nbsp;页&nbsp;&nbsp;共 <b ng-bind="pageModule.TotalPages"></b> 页</span>&nbsp;&nbsp;
+                </li>
+                <li class='{{pageModule.TotalPages<=pageModule.pageIndex?"disabled":""}} next' ng-click="pageModule.chanePageIndex(pageModule.pageIndex+1)">
+                    <a class="glyphicon glyphicon-triangle-right" href="javascript:;"></a>
+                </li>
+                <li class='{{pageModule.TotalPages<=pageModule.pageIndex?"disabled":""}} last' ng-click="pageModule.chanePageIndex(pageModule.TotalPages)">
+                    <a class="glyphicon glyphicon-step-forward" href="javascript:;"></a>
+                </li>
+                <li class='' ng-click="pageModule.setPageIndex(pageModule.pageSet)">
+                    <a class="glyphicon glyphicon-search" href="javascript:;"></a>
+                </li>
+                <li class='' ng-click="pageModule.chanePageIndex(pageModule.pageIndex)">
+                    <a class="glyphicon glyphicon-refresh" href="javascript:;"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+

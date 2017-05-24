@@ -1,0 +1,94 @@
+<!--模拟手机端翻页效果-->
+
+
+<div class="tabGroup" my-tab-group>
+    <style>
+        [my-tab-group]{
+            width:100%;
+            height:100%;
+        }
+        .tabGroup_items{
+            list-style: none;
+            clear: both;
+        }
+        .tabGroup_items>[tab-group-item]{
+            float:left;
+            border-right:red solid 1px;
+            border-bottom:red solid 1px;
+            background-color: #00a0e9;
+            line-height: 30px;
+            width:33.3333%;
+            text-align: center;
+        }
+        .tabGroup_items>[tab-group-item].active{
+            background-color: #ffffff;
+            border-bottom:none;
+        }
+        .tabGroup_items>[tab-group-item]:last-child{
+            border-right: none;
+        }
+
+        .tabGroup>.tabGroup_counts{
+            height:100%;
+            width:100%;
+            margin-top: -30px;
+            padding-top: 30px;
+        }
+        .tabGroup>.tabGroup_counts>[tab-group-count]{
+            height:100%;
+            width:100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: none;
+
+        }
+        .tabGroup>.tabGroup_counts>[tab-group-count].active{
+            display: block;
+        }
+
+
+
+        /*动画*/
+        /*tab移动*/
+        @keyframes tabMove
+        {
+            0%{transform:translateX(100vw);}
+            100%{transform:translateX(0vw);}
+        }
+        @-webkit-keyframes tabMove
+        {
+            0%{-webkit-transform:translateX(100vw);}
+            100%{-webkit-transform:translateX(0vw);}
+        }
+        @-moz-keyframes tabMove
+        {
+            0%{-moz-transform:translateX(100vw);}
+            100%{-moz-transform:translateX(0vw);}
+        }
+        @-o-keyframes tabMove
+        {
+            0%{-o-transform:translateX(100vw);}
+            100%{-o-transform:translateX(0vw);}
+        }
+        .tabContMove{
+            animation: tabMove 300ms ;
+            -moz-animation: tabMove 300ms ;	/* Firefox */
+            -webkit-animation: tabMove 300ms ;	/* Safari 和 Chrome */
+            -o-animation: tabMove 300ms ;
+        }
+
+    </style>
+
+    <ul class="tabGroup_items clearfix">
+            <li tab-group-item="a" class="active">111111</li>
+            <li tab-group-item="b" >222222</li>
+            <li tab-group-item="c" >333333</li>
+    </ul>
+    <div class="tabGroup_counts">
+        <div tab-group-count="a" class="active" data-fn="tabHand.aFn">aaaa</div>
+        <div tab-group-count="b" data-fn="tabHand.bFn">bbbb</div>
+        <div tab-group-count="c" data-fn="tabHand.cFn">cccc</div>
+    </div>
+</div>
+
+

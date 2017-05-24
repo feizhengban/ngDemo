@@ -1,0 +1,97 @@
+<div>
+
+    <!--医院查询-->
+    <div class="well clearfix">
+        <form class="form-inline pull-left  searchForm">
+            <label class="input">医院名称：
+                <input type="text" class="input-large"  ng-model="hospitalName">
+            </label>&nbsp;&nbsp;
+            <label class="input">医院类别：
+                <select class="input-small"  ng-model="hospitalClass">
+                    <option>全部</option>
+                    <option>一级</option>
+                    <option>二级</option>
+                    <option>三级</option>
+                </select>
+            </label>&nbsp;&nbsp;
+            <label class="input">所在地区：
+                <select class="input-small"  ng-model="hospitalLocation"  ng-options="city.id as city.name for city in  arr">
+                    <option value="">全部</option>
+                    <!--<option>赤坎区</option>-->
+                    <!--<option>霞山区</option>-->
+                    <!--<option>坡头区</option>-->
+                    <!--<option>麻章区</option>-->
+                    <!--<option>吴川市</option>-->
+                    <!--<option>雷州市</option>-->
+                    <!--<option>廉江市</option>-->
+                    <!--<option>遂溪县</option>-->
+                    <!--<option>徐闻县</option>-->
+                </select>
+            </label>&nbsp;&nbsp;
+            <label class="input">启用状态：
+                <select class="input-small" ng-modal="hospitalState">
+                    <option>全部</option>
+                    <option>启用</option>
+                    <option>停用</option>
+                </select>
+            </label>&nbsp;&nbsp;
+            <button type="button" class="btn blue"  ng-click="phoneStatisticsGrid.search()">检索</button>
+            <div class="pull-right">
+                <a href="#myModal" type="button" class="btn red" data-toggle="modal">添加</a>
+            </div>
+        </form>
+
+    </div>
+    <!--医院查询-->
+
+    <!--档案列表-->
+    <div class="portlet-body">
+        <table  ng-cis-grid="phoneStatisticsGrid"  class="table table-striped table-hover table-bordered">
+            <thead>
+            <tr>
+                <th  colname="Index" colwidth="20" allowsort="false" allowresize="false">序号</th>
+                <th  colname="name" colwidth="200" class="hidden-phone">医院名称</th>
+                <th  colname="class" colwidth="40" >医院类别</th>
+                <th  colname="location" colwidth="40" >所在地区</th>
+                <th  colname="servicesTarget" colwidth="40" >服务对象</th>
+                <th  colname="phoneNum" colwidth="40" >联系电话</th>
+                <th  colname="address" colwidth="40" >地址</th>
+                <th  colname="state" colwidth="40" >启用状态</th>
+                <th  colname="handler" colwidth="80" allowsort="false" allowresize="false">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-toggle="modal" data-backdrop="true" ng-repeat="item in phoneStatisticsGrid.items" on-finish-render="isOk">
+                <td class="highlight">
+                    {{(phoneStatisticsGrid.queryPrarms.pageIndex-1)*phoneStatisticsGrid.queryPrarms.pageSize+($index+1)}}
+                </td>
+                <td class="hidden-phone" ng-bind="item.name">广东医学院附属医院</td>
+                <td ng-bind="item.class"></td>
+                <td ng-bind="item.location">霞山区</td>
+                <td ng-bind="item.servicesTarget">职工/居民</td>
+                <td ng-bind="item.phoneNum">0759-2369213</td>
+                <td ng-bind="item.address">湛江市霞山区人民大道南57号</td>
+                <td ng-bind="item.state">启用</td>
+                <td>
+                    <a href="#myModal" data-toggle="modal">
+                        <li class="icon-pause" style="font-size:16px;"></li>
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="#myModal-2" data-toggle="modal">
+                        <li class="icon-edit" style="font-size:16px;"></li>
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="">
+                        <li class="icon-trash" style="font-size:16px;"></li>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--档案列表-->
+
+    <!--分页-->
+    <!--<span ng-cis-grid-pager="phoneStatisticsGrid"></span>-->
+
+
+
+</div>
