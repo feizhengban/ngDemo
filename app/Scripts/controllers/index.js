@@ -8,4 +8,5 @@ define([
     //'./my-ctrl-1',
     './home/index',
     './modelHandler/index',
+    ''
 ], function () {});

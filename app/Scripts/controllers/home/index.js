@@ -8,4 +8,5 @@ define([
     //'./my-ctrl-1',
     './bodyCtrl',          //最外层body控制器
     './homePageController', //默认页控制器
+    './weiuiPickerCtrl'
 ], function () { });

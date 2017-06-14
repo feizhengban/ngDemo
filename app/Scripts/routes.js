@@ -22,6 +22,10 @@ define(['./app'], function (app) {
             //表格例子 分页
             templateUrl: 'templates/modelHandler/test.html',
             controller: 'testCtrl'
+        }).when('/weiuiPicker', {
+            //weiui Picker功能测试
+            templateUrl: 'templates/weiuiPicker.html',
+            controller: 'weiuiPickerCtrl'
         }).otherwise({
             redirectTo: '/',
             templateUrl: 'templates/home/homePage.html',

@@ -1,0 +1,54 @@
+<!--weiui picker 插件测试应用-->
+<link rel="stylesheet" href="../Scripts/weiui/style/weui.css">
+<script type="text/javascript" src="../Scripts/weiui/dist/jquery-weui.js"></script>
+
+
+<input type="text" id ="picker">
+
+<script>
+
+    $("#picker").datetimePicker();
+
+
+/*
+    $("#picker").picker({
+        title: "请选择预约时间",
+        cols: [
+            {
+                textAlign: 'center',
+                values: [d1, d2, d3, d4, d5, d6, d7],
+                displayValues: ['今天(' + d1 + ")", '明天(' + d2 + ")", '后天(' + d3 + ")", '2天后(' + d4 + ")", '3天后(' + d5 + ")", '4天后(' + d6 + ")", '5天后(' + d7 + ")",],
+            },
+            {
+                textAlign: 'center',
+                values: ['09:00~11:00', '11:00~13:00', '13:00~15:00', '15:00~17:00', '17:00~19:00']
+            },
+        ],
+        onChange: function (rs) {
+            var choseDate = $(".picker-items-col-wrapper").eq(0).find('.picker-selected').attr("data-picker-value");
+            var choseHour = $(".picker-items-col-wrapper").eq(1).find('.picker-selected').attr("data-picker-value");
+            var hourList = $(".picker-items-col-wrapper").eq(1).find('.picker-item');
+            var nowDate = moment();
+            var hour = choseHour.split("~");
+            var endDate = moment(choseDate + " " + hour[1]);
+            if (nowDate > endDate) {
+                var setDate = choseDate;
+                var setHour = "";
+                hourList.each(function () {
+                    var tempHour = $(this).attr("data-picker-value");
+                    var tempEndDate = moment(choseDate + " " + tempHour.split("~")[1]);
+                    if (tempEndDate > nowDate) {
+                        setHour = tempHour;
+                        $("#picker").picker("setValue", [setDate, setHour]);
+                        return false;
+                    }
+                });
+                if (setHour == "") {
+                    setDate = nowDate.add('days', 1).format("YYYY-MM-DD");
+                    setHour = '09:00~11:00';
+                    $("#picker").picker("setValue", [setDate, setHour]);
+                }
+            }
+        },
+    });*/
+</script>
